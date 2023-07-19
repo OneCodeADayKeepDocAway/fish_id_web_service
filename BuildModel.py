@@ -35,3 +35,6 @@ X = Dense(units=3, activation="sigmoid")(X)
 
 # -----Final model-----
 model = Model(base_model.input, X)
+
+# -----Compile the model-----
+model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"])
