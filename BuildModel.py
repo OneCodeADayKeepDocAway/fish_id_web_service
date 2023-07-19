@@ -64,3 +64,19 @@ valid_data = data_gen.flow_from_directory(
     target_size=(500,500), 
     batch_size=4
 )
+
+# -----Checkpoint of the model-----
+mc = ModelCheckpoint(
+    filepath="./model/final_model.h5", 
+    monitor="accuracy", 
+    save_best_only=True,
+    verbose=1
+)
+
+# -----Earlystopping for the model-----
+es = EarlyStopping(
+    monitor="accuracy",
+    min_delta=0.01,
+    patience=5,
+    verbose=1
+)
