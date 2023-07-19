@@ -80,3 +80,13 @@ es = EarlyStopping(
     patience=5,
     verbose=1
 )
+
+# -----Fit the model-----
+model.fit_generator(
+    train_data,
+    steps_per_epoch=18,
+    epochs=30,
+    validation_data=valid_data,
+    validation_steps=5,
+    callbacks=[mc, es]
+)
