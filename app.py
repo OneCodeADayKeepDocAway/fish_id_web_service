@@ -41,7 +41,7 @@ def pedict():
 
     if prediction == 0:
         final = "Carp"
-    elif pred == 1:
+    elif prediction == 1:
         final = "Goldfish"
     else:
         final = "Gurami"
