@@ -6,7 +6,7 @@ from keras.models import load_model
 from tensorflow.keras.utils import load_img, img_to_array
 
 # -----Load model-----
-model = load_model("./Model/final_model.h5")
+model = load_model("./model/final_model.h5")
 
 # -----Generate prediction function-----
 def get_prediction(img_path):
