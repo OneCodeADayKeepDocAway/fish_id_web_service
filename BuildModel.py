@@ -50,3 +50,17 @@ data_gen = ImageDataGenerator(
     zoom_range=0.4,
     shear_range=0.4
 )
+
+# -----Create training dataset-----
+train_data = data_gen.flow_from_directory(
+    directory="./data/training", 
+    target_size=(500,500), 
+    batch_size=8
+)
+
+# -----Create validation dataset-----
+valid_data = data_gen.flow_from_directory(
+    directory="./data/validation", 
+    target_size=(500,500), 
+    batch_size=4
+)
