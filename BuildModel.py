@@ -38,3 +38,15 @@ model = Model(base_model.input, X)
 
 # -----Compile the model-----
 model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"])
+
+# -----Setup batches of tensor image data with real-time data augmentation-----
+data_gen = ImageDataGenerator(
+    rescale=1./500.,
+    featurewise_center=False,
+    rotation_range=0.4,
+    width_shift_range=0.3,
+    horizontal_flip=True,
+    preprocessing_function=preprocess_input,
+    zoom_range=0.4,
+    shear_range=0.4
+)
