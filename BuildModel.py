@@ -23,3 +23,15 @@ base_model = InceptionV3(
 # -----Freeze layers of the base model-----
 for layer in base_model.layers:
     layer.trainable = False
+
+# -----Downsamples the output of the the base model-----
+X = GlobalAveragePooling2D()(base_model.output)
+
+# -----Add hidden layers to learn new weights-----
+X = Dense(units=400, activation="relu")(X)
+
+# -----Add a output layer-----
+X = Dense(units=3, activation="sigmoid")(X)
+
+# -----Final model-----
+model = Model(base_model.input, X)
