@@ -25,10 +25,14 @@ def pedict():
 
     # Validate the image file
     if "file" not in request.files:
-        return jsonify({"error": "Image not provided"}), 400
+        return jsonify({"error": "Image not provided!"}), 400
+    
+    # Get the file
     file = request.files["file"]
+
+    # Validate filename
     if file.filename == "":
-        return jsonify({"error": "No image selected"}), 400
+        return jsonify({"error": "No image selected!"}), 400
     
     # Generate a secure unique file name
     filename = uuid.uuid4().hex+"_"+secure_filename(file.filename)
